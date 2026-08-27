@@ -240,6 +240,15 @@ document.querySelectorAll('.tool').forEach(function(card){
 });
 </script>
 
+ <div style="text-align:center;padding:15px;background:#111;color:#fff;border:3px solid #444;border-radius:15px;margin:20px;font-family:Arial,sans-serif">
+<h3 style="margin:0">Total Visitors: <span id="visitors">Loading...</span></h3>
+<p style="margin:8px 0 0 0">Today Visitors: <span id="today-visitors">Loading...</span></p>
+</div>
+<script>
+fetch('https://api.countapi.xyz/hit/rakib75685-bdtools/total').then(function(r){return r.json()}).then(function(d){document.getElementById('visitors').innerText=d.value});
+fetch('https://api.countapi.xyz/hit/rakib75685-bdtools-today/'+new Date().toISOString().slice(0,10)).then(function(r){return r.json()}).then(function(d){document.getElementById('today-visitors').innerText=d.value});
+</script>
+<script data-goatcounter="https://rakib-bdtools.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type='text/javascript' src='//www.highperformanceformat.com/5c0096e7c7b96e7b/invoke.js'></script>
 </body>
 </html>
