@@ -249,6 +249,23 @@ fetch('https://abacus.jasoncameron.dev/hit/rakib75685-bdtools-pro-max/total').th
 fetch('https://abacus.jasoncameron.dev/hit/rakib75685-bdtools-pro-max-today-'+new Date().toISOString().slice(0,10)).then(r=>r.json()).then(d=>{document.getElementById('today-visitors').innerText=d.value});
 </script>
 <script data-goatcounter="https://rakib-bdtools.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+ <!-- MY EARNINGS BOX - START -->
+<div style="background:#111;border:2px solid #ff003c;padding:20px;border-radius:20px;margin:20px;text-align:center;color:#fff;position:relative;z-index:10">
+<h2 style="color:#ff003c;margin:0 0 15px 0;font-family:Anton">💰 MY EARNINGS</h2>
+<div style="display:flex;justify-content:space-around">
+<div><p style="color:#aaa;margin:0">Total Share</p><h1 id="shareCount" style="margin:5px 0">0</h1></div>
+<div><p style="color:#aaa;margin:0">Total Earnings</p><h1 style="margin:5px 0;color:#00ff88">$<span id="totalTaka">0</span></h1></div>
+</div>
+<button onclick="addShare()" style="width:100%;padding:12px;background:#ff003c;color:#fff;border:none;border-radius:12px;font-weight:900;margin-top:15px">+ ADD 1 SHARE</button>
+<p style="font-size:11px;color:#888;margin-top:10px">Per Share = $5</p>
+</div>
+<script>
+let share=localStorage.getItem('my_share')?parseInt(localStorage.getItem('my_share')):0;let rate=5;
+function updateBox(){document.getElementById('shareCount').innerText=share;document.getElementById('totalTaka').innerText=share*rate;}
+function addShare(){share++;localStorage.setItem('my_share',share);updateBox();}
+updateBox();
+</script>
+<!-- MY EARNINGS BOX - END -->                                                                                                
 </body>
 </html>
 
